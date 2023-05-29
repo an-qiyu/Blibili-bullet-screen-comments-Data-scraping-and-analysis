@@ -1,3 +1,5 @@
+#获取B站指定的某视频某日的弹幕数据并存入TXT中
+
 import requests
 import re
 
