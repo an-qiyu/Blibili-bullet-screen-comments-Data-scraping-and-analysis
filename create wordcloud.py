@@ -1,3 +1,5 @@
+# 对已获取的弹幕数据分词，除去正则匹配未消除的乱码单字，词频统计并显示前20个，词云生成并展示
+
 import collections # 词频统计库
 import numpy as np # numpy数据处理库
 import jieba # 结巴分词
