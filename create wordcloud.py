@@ -7,7 +7,7 @@ import matplotlib.colors as colors  # 处理图片相关内容
 import matplotlib.pyplot as plt # 图像展示库
 
 # 读取文件
-f = open('E:\爬取弹幕\B站弹幕.txt','r', encoding="utf-8") # 打开文件
+f = open('bullet chat.txt','r', encoding="utf-8") # 打开文件
 t = f.read() # 读出整个文件
 f.close() # 关闭文件
 
