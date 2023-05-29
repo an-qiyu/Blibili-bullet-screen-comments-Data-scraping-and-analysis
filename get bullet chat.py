@@ -20,7 +20,7 @@ def get_response(url):
 
 def save(content):#保存弹幕数据
     for i in content:
-        with open('B站弹幕.txt', mode='a', encoding='utf-8') as f:
+        with open('bullet chat.txt', mode='a', encoding='utf-8') as f:
             f.write(i)
             f.write('\n')
             print(i)
