@@ -25,28 +25,54 @@ def get_people_count(string):
     for word in string:
         if len(word) == 1:
             continue
-        elif word == "亮亮":  # 列举排除相同情况
+        elif word == "亮亮" or word == "诸葛":  # 列举排除相同情况
             rword = "诸葛亮"
-        elif word == "王昭君":
-            rword = "昭君"
-        elif word == "阿离":
+        elif word == "昭君":
+            rword = "王昭君"
+        elif word == "阿离" or word == "离离":
             rword = "公孙离"
-        elif word == "香香":
+        elif word == "香香" or word == "大小姐":
             rword = "孙尚香"
-        elif word == "百里" or word == "百里守约":
-            rword = "守约"
+        elif word == "百里" or word == "守约":
+            rword = "百里守约"
         elif word == "信信":
-            rword = "李信"
-        elif word == "李华" or word == "贵妃":
+            rword = "韩信"
+        elif word == "李华" or word == "贵妃" or word == "玉环":
             rword = "杨玉环"
-        elif word == "猴子":
+        elif word == "猴子" or word == "大圣":
             rword = "孙悟空"
-        elif word == "子龙":
+        elif word == "子龙" or word == "赵子龙":
             rword = "赵云"
-        elif word == "瑶瑶":
+        elif word == "瑶瑶" or word == "阿瑶" or word == "公主":
             rword = "瑶"
         elif word == "小明":
             rword = "明世隐"
+        elif word == "夫子":
+            rword = "老夫子"
+        elif word == "云云":
+            rword = "云中君"
+        elif word == "婉儿":
+            rword = "上官婉儿"
+        elif word == "东皇":
+            rword = "东皇太一"
+        elif word == "公瑾" or word == "都督" or word == "瑜瑜":
+            rword = "周瑜"
+        elif word == "元芳":
+            rword = "李元芳"
+        elif word == "奉先":
+            rword = "吕布"
+        elif word == "狄怀英":
+            rword = "狄仁杰"
+        elif word == "婵儿":
+            rword = "貂蝉"
+        elif word == "班爹":
+            rword = "鲁班大师"
+        elif word == "火舞":
+            rword = "不知火舞"
+        elif word == "木兰" or word == "兰兰":
+            rword = "花木兰"
+        elif word == "乔妹":
+            rword = "小乔"
         else:
             rword = word
         counts[rword] = counts.get(rword, 0) + 1  # 若字典中没有则创建键值对，有则在原有值上加1
@@ -66,7 +92,7 @@ def get_people_count(string):
 def get_count(string):
     # 词频统计
     word_counts = collections.Counter(string) # 对分词做词频统计
-    word_counts_top20 = word_counts.most_common(20) # 获取前20最高频的词
+    word_counts_top20 = word_counts.most_common(100) # 获取前20最高频的词
     print (word_counts_top20) # 输出检查
     return word_counts
 
@@ -88,10 +114,10 @@ def draw_cloud(word_counts): # 词频展示
 def draw_from_dict(items):
     items=dict(items)
     x_label = list(items.keys())[:20]#取前20个
-    print(x_label)
+    #print(x_label)
     x = np.arange(len(x_label))  # 确定柱状图数量,可以认为是x方向刻度
     y = list(items.values())[:20] # y方向刻度
-    print(y)
+    #print(y)
 
 
     color = ['blue']
@@ -112,15 +138,15 @@ def main():
     string = get_string()
     word_counts = get_count(string)
     items = get_people_count(string)
-    x = input('请输入:\n1（查看云图）\n2（查看柱状图）\n3(退出）')
-    if x == '1':
-        draw_cloud(word_counts)
-    elif x == '2':
-        draw_from_dict(items)
-    elif x == '3':
-        return
-    else:
-        print('请重新输入')
+    x = '0'
+    while x != '3':
+        x = input('请输入:\n1（查看云图）\n2（查看柱状图）\n3(退出）')
+        if x == '1':
+            draw_cloud(word_counts)
+        elif x == '2':
+            draw_from_dict(items)
+        else:
+            print('请重新输入')
 
 
 if __name__ == '__main__':
